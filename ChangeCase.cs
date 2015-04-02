@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Soltys
+namespace Soltys.ChangeCase
 {
     public static class ChangeCaseExtensions
     {
