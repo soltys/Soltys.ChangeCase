@@ -74,8 +74,11 @@ namespace Soltys.ChangeCase
                 
                 return m.Groups[1].Value.ToUpper(ci);
             });
+        }
 
-
+        public static string ParamCase(this string input, CultureInfo ci = null)
+        {
+            return SentenceCase(input, "-", ci);
         }
     }
 }

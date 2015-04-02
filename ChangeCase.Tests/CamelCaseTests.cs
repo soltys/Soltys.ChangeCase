@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,13 @@ namespace Soltys.ChangeCase.Tests
             TestCamelCase("simple éxample", "simpleÉxample");
         }
 
+
+        [Test]
+        public void LocaleTest()
+        {
+            string actual = "A STRING".CamelCase(CultureInfo.CreateSpecificCulture("tr"));
+            Assert.AreEqual("aStrıng", actual);
+        }
 
         private void TestCamelCase(string input, string expected)
         {
