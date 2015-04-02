@@ -1,0 +1,1 @@
+nuget pack ChangeCase.csproj -Prop Configuration=Release

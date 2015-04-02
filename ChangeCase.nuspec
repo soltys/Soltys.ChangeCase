@@ -2,15 +2,15 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Soltys.ChangeCase</id>
-    <version>0.1</version>
-    <title>Change case</title>
+    <version>1.0</version>
+    <title>Change Case</title>
     <authors>Paweł 'soltys' Sołtysiak</authors>
     <owners>Paweł 'soltys' Sołtysiak</owners>
     <licenseUrl>https://github.com/soltys/Soltys.ChangeCase/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/soltys/Soltys.ChangeCase</projectUrl>    
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Small library to change case</description>
-    <releaseNotes>Just testing nuget package system.</releaseNotes>
+    <description>Small library to change case in strings. Based on node.js library: https://github.com/blakeembrey/change-case</description>
+    <releaseNotes>First ever release on nuget</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>change case</tags>
   </metadata>

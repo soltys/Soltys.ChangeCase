@@ -3,7 +3,6 @@
 Implementing https://www.npmjs.com/package/change-case in C#
 
 ## Installation 
-(package will be published soon <sup>tm</sup>)
 ```
   Install-Package Soltys.ChangeCase
 ```
