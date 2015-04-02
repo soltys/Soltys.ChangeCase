@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DotCaseTests.cs" />
+    <Compile Include="CamelCaseTests.cs" />
     <Compile Include="SentenceCaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -50,6 +50,7 @@ namespace Soltys.ChangeCase.Tests
         [Test]
         public void SpaceBetweenNumberPartsTest()
         {
+            TestSentenceCase("version 1.2.10", "version 1 2 10");
             TestSentenceCase("version 0.45.0", "version 0 45 0");
             TestSentenceCase("version 0..78..9", "version 0 78 9");
             TestSentenceCase("version 4_99/4", "version 4 99 4");

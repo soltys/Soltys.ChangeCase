@@ -34,7 +34,7 @@ namespace Soltys
             string step2 = _sentenceCaseTrailingDigitRegexp.Replace(step1, "$1 $2");
             string step3 = _sentenceCaseNonWordRegexp.Replace(step2, m =>
             {
-                if (m.Index == 0 || m.Index == (input.Length - m.Length))
+                if (m.Index == 0 || m.Index == (step2.Length - m.Length))
                 {
                     return "";
                 }
@@ -53,6 +53,29 @@ namespace Soltys
             }
 
             return SentenceCase(input, ".", ci);
+        }
+
+        public static string CamelCase(this string input, CultureInfo ci = null)
+        {
+            if (ci == null)
+            {
+                ci = CultureInfo.CurrentCulture;
+            }
+
+            Regex step1Regex = new Regex(@"(\d) (?=\d)", RegexOptions.ECMAScript);
+            Regex step2Regex = new Regex(@" (.)", RegexOptions.ECMAScript);
+
+            string baseString = SentenceCase(input,ci: ci);
+            // Replace periods between numeric entities with an underscore.
+            string step1 = step1Regex.Replace(baseString, "$1_");
+            // Replace spaces between words with an upper cased character.
+            return step2Regex.Replace(step1, (m) =>
+            {
+                
+                return m.Groups[1].Value.ToUpper(ci);
+            });
+
+
         }
     }
 }
