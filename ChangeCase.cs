@@ -44,5 +44,15 @@ namespace Soltys
           
             return step3.ToLower(ci);
         }
+
+        public static string DotCase(this string input, CultureInfo ci = null)
+        {
+            if (ci == null)
+            {
+                ci = CultureInfo.CurrentCulture;
+            }
+
+            return SentenceCase(input, ".", ci);
+        }
     }
 }
