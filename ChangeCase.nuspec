@@ -6,12 +6,11 @@
     <title>Change case</title>
     <authors>Paweł 'soltys' Sołtysiak</authors>
     <owners>Paweł 'soltys' Sołtysiak</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <licenseUrl>https://github.com/soltys/Soltys.ChangeCase/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/soltys/Soltys.ChangeCase</projectUrl>    
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Small library to change case</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <releaseNotes>Just testing nuget package system.</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>change case</tags>
   </metadata>
