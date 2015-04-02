@@ -20,7 +20,7 @@ Sample usage:
 
 ### SentenceCase()
 
-```charp
+```csharp
   string input = null;
   input.SentenceCase() //=> ""
   "string".SentenceCase(); //=> string
@@ -32,7 +32,7 @@ Sample usage:
 
 ### CamelCase()
 
-```charp
+```csharp
   string input = null;
   input.CamelCase() //=> ""
   "string".CamelCase(); //=> string
@@ -44,7 +44,7 @@ Sample usage:
 
 ### PascalCase()
 
-```charp
+```csharp
   string input = null;
   input.PascalCase() //=> ""
   "string".PascalCase(); //=> String
@@ -62,7 +62,7 @@ Sample usage:
 
 ### ParamCase()
 
-```charp
+```csharp
   string input = null;
   input.ParamCase() //=> ""
   "string".ParamCase(); //=> string
@@ -72,7 +72,7 @@ Sample usage:
 
 ### DotCase()
 
-```charp
+```csharp
   string input = null;
   input.DotCase() //=> ""
   "string".DotCase(); //=> string
@@ -82,7 +82,7 @@ Sample usage:
 
 ### SwapCase()
 
-```charp
+```csharp
   string input = null;
   input.SwapCase() //=> ""
   "string".SwapCase(); //=> STRING
