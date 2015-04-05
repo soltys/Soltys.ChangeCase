@@ -117,3 +117,13 @@ input.UpperCaseFirst() //=> ""
   "sentance case".SnakeCase(); //=> sentance_case
   "camelCase".SnakeCase(); //=> camel_case
 ```
+
+### ConstantCase()
+
+```csharp
+  string input = null;
+  input.ConstantCase() //=> ""
+  "string".ConstantCase(); //=> STRING
+  "sentance case".ConstantCase(); //=> SENTANCE_CASE
+  "camelCase".ConstantCase(); //=> CAMEL_CASE
+```

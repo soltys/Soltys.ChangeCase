@@ -158,5 +158,15 @@ namespace Soltys.ChangeCase
         {
             return SentenceCase(input, "_", ci);
         }
+
+        public static string ConstantCase(this string input, CultureInfo ci = null)
+        {
+            if (ci == null)
+            {
+                ci = CultureInfo.CurrentCulture;
+            }
+
+            return input.SnakeCase(ci).ToUpper(ci);
+        }
     }
 }

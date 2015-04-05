@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConstantCaseTests.cs" />
     <Compile Include="DotCaseTests.cs" />
     <Compile Include="CamelCaseTests.cs" />
     <Compile Include="LowerCaseFirstTests.cs" />
