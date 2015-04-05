@@ -14,9 +14,12 @@ namespace Soltys.ChangeCase.Tests
         public void UpperCaseFirstTest()
         {
             string input = null;
-            Assert.AreEqual(input.UpperCaseFirst(), "");
-            Assert.AreEqual("test".UpperCaseFirst(), "Test");
-            Assert.AreEqual("TEST".UpperCaseFirst(), "TEST");
+            Assert.AreEqual("", input.UpperCaseFirst());
+            Assert.AreEqual("", "".UpperCaseFirst());
+            Assert.AreEqual(" ", " ".UpperCaseFirst());
+            Assert.AreEqual("Test", "test".UpperCaseFirst());
+            Assert.AreEqual("TEST", "TEST".UpperCaseFirst());
+            Assert.AreEqual("T", "t".UpperCaseFirst());
         }
     }
 }

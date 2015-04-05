@@ -60,6 +60,14 @@ Sample usage:
   "string".UpperCaseFirst() //=> "String"
 ```
 
+### LowerCaseFirst()
+
+``` csharp
+string input = null;
+input.UpperCaseFirst() //=> ""
+"STRING".UpperCaseFirst() //=> "sTRING"
+```
+
 ### ParamCase()
 
 ```csharp

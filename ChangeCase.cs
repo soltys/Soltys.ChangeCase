@@ -77,6 +77,21 @@ namespace Soltys.ChangeCase
             return SentenceCase(input, "-", ci);
         }
 
+        public static string LowerCaseFirst(this string input, CultureInfo ci = null)
+        {
+            if (ci == null)
+            {
+                ci = CultureInfo.CurrentCulture;
+            }
+
+            if (string.IsNullOrEmpty(input))
+            {
+                return "";
+            }
+
+            return input.Substring(0,1).ToLower(ci) + input.Substring(1);
+        }
+
         public static string UpperCaseFirst(this string input, CultureInfo ci = null)
         {
             if (ci == null)
@@ -84,7 +99,7 @@ namespace Soltys.ChangeCase
                 ci = CultureInfo.CurrentCulture;
             }
 
-            if (input == null)
+            if (string.IsNullOrEmpty(input))
             {
                 return "";
             }
@@ -99,7 +114,7 @@ namespace Soltys.ChangeCase
 
         public static string SwapCase(this string input, CultureInfo ci = null)
         {
-            if (input == null)
+            if (string.IsNullOrEmpty(input))
             {
                 return "";
             }
