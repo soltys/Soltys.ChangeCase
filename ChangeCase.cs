@@ -14,6 +14,14 @@ namespace Soltys.ChangeCase
         static Regex _sentenceCaseTrailingDigitRegexp = new Regex(@"([\u0030-\u0039\u00B2\u00B3\u00B9\u00BC-\u00BE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19])([^\u0030-\u0039\u00B2\u00B3\u00B9\u00BC-\u00BE\u0660-\u0669\u06F0-\u06F9\u07C0-\u07C9\u0966-\u096F\u09E6-\u09EF\u09F4-\u09F9\u0A66-\u0A6F\u0AE6-\u0AEF\u0B66-\u0B6F\u0B72-\u0B77\u0BE6-\u0BF2\u0C66-\u0C6F\u0C78-\u0C7E\u0CE6-\u0CEF\u0D66-\u0D75\u0E50-\u0E59\u0ED0-\u0ED9\u0F20-\u0F33\u1040-\u1049\u1090-\u1099\u1369-\u137C\u16EE-\u16F0\u17E0-\u17E9\u17F0-\u17F9\u1810-\u1819\u1946-\u194F\u19D0-\u19DA\u1A80-\u1A89\u1A90-\u1A99\u1B50-\u1B59\u1BB0-\u1BB9\u1C40-\u1C49\u1C50-\u1C59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249B\u24EA-\u24FF\u2776-\u2793\u2CFD\u3007\u3021-\u3029\u3038-\u303A\u3192-\u3195\u3220-\u3229\u3248-\u324F\u3251-\u325F\u3280-\u3289\u32B1-\u32BF\uA620-\uA629\uA6E6-\uA6EF\uA830-\uA835\uA8D0-\uA8D9\uA900-\uA909\uA9D0-\uA9D9\uAA50-\uAA59\uABF0-\uABF9\uFF10-\uFF19])"
             , RegexOptions.ECMAScript);
 
+
+        /// <summary>
+        /// Return as a lower case, space separated string. 'sentence case'
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="replacement">sparator between words</param>
+        /// <param name="ci">if null then  CultureInfo.CurrentCulture</param>
+        /// <returns>Return as a lower case, space separated string. 'sentence case'</returns>
         public static string SentenceCase(this string input, string replacement = " ", CultureInfo ci = null)
         {
             if (input == null)
@@ -41,6 +49,13 @@ namespace Soltys.ChangeCase
             return step3.ToLower(ci);
         }
 
+
+        /// <summary>
+        /// Return as a lower case, period separated string.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string DotCase(this string input, CultureInfo ci = null)
         {
             if (ci == null)
@@ -51,6 +66,12 @@ namespace Soltys.ChangeCase
             return SentenceCase(input, ".", ci);
         }
 
+        /// <summary>
+        /// Return as a string with the separators denoted by having the next letter capitalized.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string CamelCase(this string input, CultureInfo ci = null)
         {
             if (ci == null)
@@ -65,18 +86,26 @@ namespace Soltys.ChangeCase
             // Replace periods between numeric entities with an underscore.
             string step1 = step1Regex.Replace(baseString, "$1_");
             // Replace spaces between words with an upper cased character.
-            return step2Regex.Replace(step1, (m) =>
-            {
-
-                return m.Groups[1].Value.ToUpper(ci);
-            });
+            return step2Regex.Replace(step1, m => m.Groups[1].Value.ToUpper(ci));
         }
 
+        /// <summary>
+        /// Return as a lower case, dash separated string.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string ParamCase(this string input, CultureInfo ci = null)
         {
             return SentenceCase(input, "-", ci);
         }
 
+        /// <summary>
+        /// Return the string with the first character lower cased.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string LowerCaseFirst(this string input, CultureInfo ci = null)
         {
             if (ci == null)
@@ -92,6 +121,12 @@ namespace Soltys.ChangeCase
             return input.Substring(0, 1).ToLower(ci) + input.Substring(1);
         }
 
+        /// <summary>
+        /// Return the string with the first character upper cased.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string UpperCaseFirst(this string input, CultureInfo ci = null)
         {
             if (ci == null)
@@ -107,11 +142,24 @@ namespace Soltys.ChangeCase
             return input.Substring(0, 1).ToUpper(ci) + input.Substring(1);
         }
 
+        /// <summary> 
+        /// Return as a string denoted in the same fashion as CamelCase, but with the first letter also capitalized.
+        /// <see cref="CamelCase"/>
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string PascalCase(this string input, CultureInfo ci = null)
         {
             return UpperCaseFirst(CamelCase(input, ci), ci);
         }
 
+        /// <summary>
+        /// Return as a string with every character case reversed.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string SwapCase(this string input, CultureInfo ci = null)
         {
             if (string.IsNullOrEmpty(input))
@@ -140,6 +188,12 @@ namespace Soltys.ChangeCase
             return swapCaseString.ToString();
         }
 
+        /// <summary>
+        /// Return as a space separated string with the first character of every word upper cased.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string TitleCase(this string input, CultureInfo ci = null)
         {
             if (ci == null)
@@ -148,17 +202,27 @@ namespace Soltys.ChangeCase
             }
 
             var sentanceCase = input.SentenceCase(ci: ci);
-            return Regex.Replace(sentanceCase, "^.| .", (m) =>
-            {
-                return m.Value.ToUpper(ci);
-            });
+            return Regex.Replace(sentanceCase, "^.| .", m => m.Value.ToUpper(ci));
         }
 
+        /// <summary>
+        /// Return as a lower case, underscore separated string.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string SnakeCase(this string input, CultureInfo ci = null)
         {
             return SentenceCase(input, "_", ci);
         }
 
+
+        /// <summary>
+        /// Return as an upper case, underscore separated string.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="ci"></param>
+        /// <returns></returns>
         public static string ConstantCase(this string input, CultureInfo ci = null)
         {
             if (ci == null)
