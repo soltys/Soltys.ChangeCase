@@ -97,3 +97,13 @@ input.UpperCaseFirst() //=> ""
   "PascalCase".SwapCase(); //=> pASCALcASE
   "Iñtërnâtiônàlizætiøn".SwapCase(); //=> iÑTËRNÂTIÔNÀLIZÆTIØN
 ```
+
+### TitleCase()
+
+```csharp
+  string input = null;
+  input.TitleCase() //=> ""
+  "string".TitleCase(); //=> String
+  "sentance case".TitleCase(); //=> Sentance Case
+  "camelCase".TitleCase(); //=> Camel Case
+```

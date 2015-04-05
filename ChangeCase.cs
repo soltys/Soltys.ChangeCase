@@ -139,5 +139,19 @@ namespace Soltys.ChangeCase
 
             return swapCaseString.ToString();
         }
+
+        public static string TitleCase(this string input, CultureInfo ci = null)
+        {
+            if (ci == null)
+            {
+                ci = CultureInfo.CurrentCulture;
+            }
+
+            var sentanceCase = input.SentenceCase(ci: ci);
+            return Regex.Replace(sentanceCase, "^.| .", (m) =>
+            {
+                return m.Value.ToUpper(ci);
+            });
+        }
     }
 }
