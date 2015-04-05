@@ -89,7 +89,7 @@ namespace Soltys.ChangeCase
                 return "";
             }
 
-            return input.Substring(0,1).ToLower(ci) + input.Substring(1);
+            return input.Substring(0, 1).ToLower(ci) + input.Substring(1);
         }
 
         public static string UpperCaseFirst(this string input, CultureInfo ci = null)
@@ -152,6 +152,11 @@ namespace Soltys.ChangeCase
             {
                 return m.Value.ToUpper(ci);
             });
+        }
+
+        public static string SnakeCase(this string input, CultureInfo ci = null)
+        {
+            return SentenceCase(input, "_", ci);
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="PascalCaseTests.cs" />
     <Compile Include="SentenceCaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SnakeCaseTests.cs" />
     <Compile Include="SwapCaseTests.cs" />
     <Compile Include="TitleCaseTests.cs" />
     <Compile Include="UpperCaseFirstTests.cs" />
