@@ -64,8 +64,8 @@ Sample usage:
 
 ``` csharp
 string input = null;
-input.UpperCaseFirst() //=> ""
-"STRING".UpperCaseFirst() //=> "sTRING"
+input.LowerCaseFirst() //=> ""
+"STRING".LowerCaseFirst() //=> "sTRING"
 ```
 
 ### ParamCase()
