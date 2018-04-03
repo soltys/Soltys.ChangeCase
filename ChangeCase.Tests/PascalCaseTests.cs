@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using System.Globalization;
+using Xunit;
 
 namespace Soltys.ChangeCase.Tests
 {
-    [TestFixture]
-    class PascalCaseTests
+    public class PascalCaseTests
     {
-        [Test]
+        [Fact]
         public void SingleWordTest()
         {
             TestPascalCase("test", "Test");
@@ -19,51 +13,51 @@ namespace Soltys.ChangeCase.Tests
         }
 
 
-        [Test]
+        [Fact]
         public void RegularSentenceCasedStringsTest()
         {
             TestPascalCase("test string", "TestString");
             TestPascalCase("Test String", "TestString");
         }
 
-        [Test]
+        [Fact]
         public void NonAlphanumericSeparatorsTest()
         {
             TestPascalCase("dot.case", "DotCase");
             TestPascalCase("path/case", "PathCase");
         }
 
-        [Test]
+        [Fact]
         public void UnderscorePeriodsInsideNumbersTest()
         {
             TestPascalCase("version 1.2.10", "Version1_2_10");
             TestPascalCase("version 1.21.0", "Version1_21_0");
         }
 
-        [Test]
+        [Fact]
         public void PascalCasedStringTest()
         {
             TestPascalCase("TestString", "TestString");
         }
 
-        [Test]
+        [Fact]
         public void NonLatinStringsTest()
         {
             TestPascalCase("simple éxample", "SimpleÉxample");
         }
 
 
-        [Test]
+        [Fact]
         public void LocaleTest()
         {
             string actual = "my STRING".PascalCase(CultureInfo.CreateSpecificCulture("tr"));
-            Assert.AreEqual("MyStrıng", actual);
+            Assert.Equal("MyStrıng", actual);
         }
 
         private void TestPascalCase(string input, string expected)
         {
             string actual = input.PascalCase();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
     }
 }

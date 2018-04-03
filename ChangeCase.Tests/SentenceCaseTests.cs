@@ -1,39 +1,37 @@
-﻿using System;
-using System.Globalization;
-using NUnit.Framework;
+﻿using System.Globalization;
+using Xunit;
 
 namespace Soltys.ChangeCase.Tests
 {
-    [TestFixture]
     public class SentenceCaseTests
     {
-        [Test]
+        [Fact]
         public void NullInputTest()
         {
             TestSentenceCase(null, "");
         }
 
-        [Test]
+        [Fact]
         public void NumberInputTest()
         {
             TestSentenceCase("10", "10");
         }
 
-        [Test]
+        [Fact]
         public void SingleWordTest()
         {
             TestSentenceCase("test", "test");
             TestSentenceCase("TEST", "test");
         }
 
-        [Test]
+        [Fact]
         public void CamelCaseTest()
         {
             TestSentenceCase("testString", "test string");
             TestSentenceCase("testString123", "test string 123");
         }
 
-        [Test]
+        [Fact]
         public void NonAlphaNumericSeparatorsTest()
         {
             TestSentenceCase("dot.case", "dot case");
@@ -41,13 +39,13 @@ namespace Soltys.ChangeCase.Tests
             TestSentenceCase("snake_case", "snake case");
         }
 
-        [Test]
+        [Fact]
         public void PunctuationTest()
         {
             TestSentenceCase("\"quotes\"", "quotes");
         }
 
-        [Test]
+        [Fact]
         public void SpaceBetweenNumberPartsTest()
         {
             TestSentenceCase("version 1.2.10", "version 1 2 10");
@@ -57,13 +55,13 @@ namespace Soltys.ChangeCase.Tests
         }
 
 
-        [Test]
+        [Fact]
         public void WhitespaceTest()
         {
             TestSentenceCase("  test  ", "test");
         }
 
-        [Test]
+        [Fact]
         public void NonAsciiChacterTest()
         {
             // Non-ascii characters.
@@ -72,38 +70,38 @@ namespace Soltys.ChangeCase.Tests
             TestSentenceCase("Iñtërnâtiônàlizætiøn", "iñtërnâtiônàlizætiøn");
         }
 
-        [Test]
+        [Fact]
         public void NumberStringInput()
         {
             // Number string input.
             TestSentenceCase("something2014other", "something 2014 other");
         }
 
-        [Test]
+        [Fact]
         public void CustomReplacementTest()
         {
             // Custom replacement character
             TestSentenceCase("HELLO WORLD!", "hello_world", "_");
         }
 
-        [Test]
+        [Fact]
         public void CustomLocaletest()
         {
             string actual = "A STRING".SentenceCase(" ", CultureInfo.CreateSpecificCulture("tr"));
-            Assert.AreEqual("a strıng", actual);
+            Assert.Equal("a strıng", actual);
         }
 
 
         private static void TestSentenceCase(string input, string expected)
         {
             string actual = input.SentenceCase();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         private static void TestSentenceCase(string input, string expected, string replacement)
         {
             string actual = input.SentenceCase(replacement);
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
     }
 }

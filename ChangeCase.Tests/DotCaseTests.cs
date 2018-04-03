@@ -1,43 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using System.Globalization;
+using Xunit;
 
 namespace Soltys.ChangeCase.Tests
 {
-    [TestFixture]
     public class DotCaseTests
     {
-        [Test]
+        [Fact]
         public void NullInputTest()
         {
             TestDotCase(null, "");
         }
 
-        [Test]
+        [Fact]
         public void NumberInputTest()
         {
             TestDotCase("10", "10");
         }
 
-        [Test]
+        [Fact]
         public void SingleWordTest()
         {
             TestDotCase("test", "test");
             TestDotCase("TEST", "test");
         }
 
-        [Test]
+        [Fact]
         public void CamelCaseTest()
         {
             TestDotCase("testString", "test.string");
             TestDotCase("testString123", "test.string.123");
         }
 
-        [Test]
+        [Fact]
         public void NonAlphaNumericSeparatorsTest()
         {
             TestDotCase("dot.case", "dot.case");
@@ -45,13 +39,13 @@ namespace Soltys.ChangeCase.Tests
             TestDotCase("snake_case", "snake.case");
         }
 
-        [Test]
+        [Fact]
         public void PunctuationTest()
         {
             TestDotCase("\"quotes\"", "quotes");
         }
 
-        [Test]
+        [Fact]
         public void SpaceBetweenNumberPartsTest()
         {
             TestDotCase("version 0.45.0", "version.0.45.0");
@@ -60,13 +54,13 @@ namespace Soltys.ChangeCase.Tests
         }
 
 
-        [Test]
+        [Fact]
         public void WhitespaceTest()
         {
             TestDotCase("  test  ", "test");
         }
 
-        [Test]
+        [Fact]
         public void NonAsciiChacterTest()
         {
             // Non-ascii characters.
@@ -75,7 +69,7 @@ namespace Soltys.ChangeCase.Tests
             TestDotCase("Iñtërnâtiônàlizætiøn", "iñtërnâtiônàlizætiøn");
         }
 
-        [Test]
+        [Fact]
         public void NumberStringInput()
         {
             // Number string input.
@@ -86,18 +80,18 @@ namespace Soltys.ChangeCase.Tests
 
        
 
-        [Test]
+        [Fact]
         public void CustomLocaletest()
         {
             string actual = "A STRING".DotCase(CultureInfo.CreateSpecificCulture("tr"));
-            Assert.AreEqual("a.strıng", actual);
+            Assert.Equal("a.strıng", actual);
         }
 
 
         private void TestDotCase(string input, string expected )
         {
             string actual = input.DotCase();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
      
     }
