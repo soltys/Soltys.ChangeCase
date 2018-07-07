@@ -1,31 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using System.Globalization;
+using Xunit;
 
 namespace Soltys.ChangeCase.Tests
 {
-    [TestFixture]
-    class SwapCaseTests
+    public class SwapCaseTests
     {
-        [Test]
+        [Fact]
         public void SwapCaseInStringsTest()
         {
             string input = null;
-            Assert.AreEqual(input.SwapCase(),"");
-            Assert.AreEqual("test".SwapCase(), "TEST");
-            Assert.AreEqual("TEST".SwapCase(), "test");
-            Assert.AreEqual("PascalCase".SwapCase(), "pASCALcASE");
-            Assert.AreEqual("Iñtërnâtiônàlizætiøn".SwapCase(), "iÑTËRNÂTIÔNÀLIZÆTIØN");
+            Assert.Equal("", input.SwapCase());
+            Assert.Equal("TEST", "test".SwapCase());
+            Assert.Equal("test", "TEST".SwapCase());
+            Assert.Equal("pASCALcASE", "PascalCase".SwapCase());
+            Assert.Equal("iÑTËRNÂTIÔNÀLIZÆTIØN", "Iñtërnâtiônàlizætiøn".SwapCase());
         }
 
-        [Test]
+        [Fact]
         public void LocaleSupportTest()
         {
-            Assert.AreEqual("mY sTRİNG", "My String".SwapCase(CultureInfo.CreateSpecificCulture("tr")));
+            Assert.Equal("mY sTRİNG", "My String".SwapCase(CultureInfo.CreateSpecificCulture("tr")));
         }
     }
 }

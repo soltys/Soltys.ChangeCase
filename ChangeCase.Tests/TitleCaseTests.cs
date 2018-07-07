@@ -1,40 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using System.Globalization;
+using Xunit;
 
 namespace Soltys.ChangeCase.Tests
 {
-    [TestFixture]
-    class TitleCaseTests
+    public class TitleCaseTests
     {
         
 
-        [Test]
+        [Fact]
         public void SingleWordTest()
         {
             TestTitleCase("test", "Test");
             TestTitleCase("TEST", "Test");
         }
 
-        [Test]
+        [Fact]
         public void RegularSentenceTest()
         {
             TestTitleCase("test string", "Test String");
             TestTitleCase("Test String", "Test String");
         }
 
-        [Test]
+        [Fact]
         public void NonAlphanumericSeparatorTest()
         {
             TestTitleCase("dot.case", "Dot Case");
             TestTitleCase("path/case", "Path Case");
         }
 
-        [Test]
+        [Fact]
         public void PascalCasedStringsTest()
         {
             TestTitleCase("TestString", "Test String");
@@ -42,13 +36,13 @@ namespace Soltys.ChangeCase.Tests
         }
 
 
-        [Test]
+        [Fact]
         public void CamelCasedStringsTest()
         {
             TestTitleCase("testString", "Test String");
         }
 
-        [Test]
+        [Fact]
         public void NonAsciiSupportTest()
         {
             TestTitleCase("éxample", "Éxample");
@@ -57,14 +51,14 @@ namespace Soltys.ChangeCase.Tests
         private void TestTitleCase(string input, string expected)
         {
             var actual = input.TitleCase();
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [Test]
+        [Fact]
         public void TurkishTest()
         {
             string actual = "STRING".TitleCase(CultureInfo.CreateSpecificCulture("tr"));
-            Assert.AreEqual("Strıng", actual);
+            Assert.Equal("Strıng", actual);
         }
     }
 }
