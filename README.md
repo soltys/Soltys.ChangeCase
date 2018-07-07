@@ -3,9 +3,18 @@
 Ported: https://www.npmjs.com/package/change-case to C#
 
 ## Installation 
+.NET Framework
+
 ```
-  Install-Package Soltys.ChangeCase
+Install-Package Soltys.ChangeCase
 ```
+
+.NET Core
+
+```
+dotnet add package Soltys.ChangeCase --version 1.6.0
+```
+
 
 ## Usage
 Add using:
