@@ -7,6 +7,10 @@
     <Company />
     <Authors />
     <Copyright>Copyright ©  2015</Copyright>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.6.0</Version>
+    <PackageProjectUrl>https://github.com/soltys/Soltys.ChangeCase</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/soltys/Soltys.ChangeCase/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>

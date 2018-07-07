@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Soltys.ChangeCase</id>
-    <version>1.5</version>
+    <version>1.6</version>
     <title>Change Case</title>
     <authors>Paweł 'soltys' Sołtysiak</authors>
     <owners>Paweł 'soltys' Sołtysiak</owners>
@@ -10,8 +10,11 @@
     <projectUrl>https://github.com/soltys/Soltys.ChangeCase</projectUrl>    
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Small library to change case in strings. Based on node.js library: https://github.com/blakeembrey/change-case</description>
-    <releaseNotes>Added LowerCaseFirst(), TitleCase(), SnakeCase(), ConstantCase() and also added Intellisense XML Docs</releaseNotes>
+    <releaseNotes>Migrated to .NET Standard</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>change case</tags>
   </metadata>
+  <files>
+    <file src="bin/Release/netstandard2.0/Soltys.ChangeCase.dll" target="lib/netstandard2.0/Soltys.ChangeCase.dll" />
+  </files>
 </package>
